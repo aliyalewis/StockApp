@@ -3,8 +3,8 @@ has_many :stocks, through: :portfolio
 has_many :stocks, through: :comments
 has_one :watchlist
 
-validate :username, uniqueness: true
-validate :email, uniqueness: true
+validates :username, uniqueness: true
+validates :email, uniqueness: true
 
 
 end
