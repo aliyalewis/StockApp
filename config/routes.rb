@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :stocks
   resources :users
 
+  get 'login', to: 'auth#new'
+  post 'login' to: 'auth#create'
+
   resources :users do
     resources :comments
   end
