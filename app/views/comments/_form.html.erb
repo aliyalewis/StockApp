@@ -1,0 +1,8 @@
+<%= form_for(cookie) do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<%= f.label :content %>
+<%= f.text_area :content %>
+<%= f.label :stock %>
+<%= f.collection_select(:user_id, Stock.all, :id, :symbol) %>
+<%= f.submit %>
