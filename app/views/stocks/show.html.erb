@@ -1,3 +1,17 @@
-<h1><%= @stock.company_name %></h1>
-
-<h3><%= @stock.symbol %></h3>
+<h1><%= @company_name %></h1><br>
+<ul>
+  <label><h3>Industry:</h3></label> <%= @industry %><br>
+  <label><h3>Sector:</h3></label> <%= @sector %><br>
+  <label><h3>Description:</h3></label> <%= @description %><br>
+  <label><h3>CEO:</h3></label> <%= @ceo %><br>
+  <label><h3>Website:</h3></label> <%= link_to @website %><br>
+  <label><h3>Price:</h3></label><%= @price %><br>
+  <label><h3>Beta:</h3></label><%= @beta %><br>
+  <label><h3>Average:</h3></label><%= @vol_avg %><br>
+  <label><h3>Market Cap:</h3></label><%= @mkt_cap %><br>
+  <label><h3>Last Dividend:</h3></label><%= @last_div %><br>
+  <label><h3>Range:</h3></label> <%= @range %><br>
+  <label><h3>Changes:</h3></label> <%= @changes %><br>
+  <label><h3>Percent Change:</h3></label> <%= @changes_percentage %><br>
+  <label><h3>Exchange:</h3></label> <%= @exchange %><br>
+</ul>

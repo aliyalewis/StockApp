@@ -3,6 +3,9 @@ class Stock < ApplicationRecord
   has_many :users, through: :portfolio
 
   validates :symbol, uniqueness: true
-  validates :company_name, uniqueness: true
+
+  def stock_info
+    
+  end
 
 end
