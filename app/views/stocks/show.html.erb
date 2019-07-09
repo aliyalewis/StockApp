@@ -16,4 +16,6 @@
   <label><h3>Exchange:</h3></label> <%= @exchange %><br>
 </ul>
 
- <%= @stock.posts %>
+ <% @stock.comments do |comment| %>
+  <%= comment.title %><br>
+  <%= comment.content %><br>

@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Comment.create(title: "I love Apple", content: "Apple is the best. Much impressed.", stock_id: 1, user_id: 1)
+
 Stock.create(symbol: "AAPL")
 Stock.create(symbol: "MSFT")
 Stock.create(symbol:"HPQ")
@@ -32,12 +34,4 @@ Stock.create(symbol: "CSCO")
       name: Faker::Name.name,
       email: Faker::Internet.email,
       username: Faker::Nation.nationality)
-end
-
-100. times do
-  Comment.create(
-    title: Faker::ElectricalComponents.electromechanical,
-    content: Faker::Lorem.paragraph(2),
-    user_id: rand(1..5),
-    stock_id: rand(1..20))
 end
