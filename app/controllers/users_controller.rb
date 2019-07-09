@@ -2,6 +2,10 @@ class UsersController < ApplicationController
 
     before_action :set_user, only:[:edit, :show, :update, :destroy]
 
+    def index
+        @users = User.all 
+    end
+    
     def new
         @user = User.new
     end
@@ -15,7 +19,6 @@ class UsersController < ApplicationController
             render :new
         end
     end
-
 
     def update
         if @user.update(user_params)
