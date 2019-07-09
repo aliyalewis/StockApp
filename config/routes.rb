@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users
 
   get 'login', to: 'auth#new'
-  post 'login' to: 'auth#create'
+  post 'login', to: 'auth#create'
 
   resources :users do
     resources :comments
