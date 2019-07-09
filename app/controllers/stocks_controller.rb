@@ -1,5 +1,5 @@
 class StocksController < ApplicationController
-    before_action :set_stock, only:[:show, :update, :destroy]
+    before_action :set_stock, only:[:update, :destroy]
 
     def new
         @stock = Stock.new
