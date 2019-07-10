@@ -12,8 +12,16 @@
     <h4>Email: <%= @user.email %> </h4>
     <h4>Posts: </h4>
     <ul><% @user.comments.each do |comment| %>
-        <li> <%= link_to comment.title, user_comment_path(comment) %> </li> 
+        <li> <%= link_to comment.title, user_comment_path(comment) %> </li>
         <%end%>
+    </ul>
+
+
+    <h4>Stocks <%= @user.name %> Has Commented On:</h4>
+    <ul>
+      <% @user.comments.each do |comment| %>
+        <li><%= link_to comment.stock.symbol, stock_path(comment.stock.id) %></li>
+        <% end %>
     </ul>
 </body>
 </html>

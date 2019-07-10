@@ -36,10 +36,7 @@ class StocksController < ApplicationController
     def show
       @stock = Stock.find(params[:id])
       fetch_stocks(@stock.symbol)
-
     end
-
-
 
     def create
         @stock = Stock.new(stock_params)
@@ -51,6 +48,13 @@ class StocksController < ApplicationController
         end
     end
 
+    def add_to_portfolio
+      @stock = Stock.find(params[:id])
+
+      current_portfolio << @stock.id
+
+    end
+
     def destroy
         @stock.delete
     end
@@ -60,4 +64,5 @@ class StocksController < ApplicationController
     def set_stock
         params.require(:stock).permit(:symbol)
     end
+
 end
