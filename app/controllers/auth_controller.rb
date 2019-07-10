@@ -4,12 +4,12 @@ class AuthController < ApplicationController
     end
 
     def verify
-        if User.find_by(username: params[:username])
-          @user = User.find_by(username: params[:username])
+        if User.find_by(username: params[:auth][:username])
+          @user = User.find_by(username: params[:auth][:username])
           session[:user_id] = @user.id
           redirect_to stocks_path
         else
-            redirect_to new_user_path
+            render :new
         end
     end
 
