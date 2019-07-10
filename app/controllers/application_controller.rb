@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
 
     def logged_in?
         !!session[:user_id]
+        redirect_to login_path
+    end
+
+    def authorized?
+        params[:id] == session[:user_id]
     end
 
     def redirect_user

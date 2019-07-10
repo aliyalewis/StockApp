@@ -1,29 +1,48 @@
 class CommentsController < ApplicationController
 
     before_action :set_comment, only: [:edit, :show, :update, :destroy]
+    before_action :logged_in?, only:[:new, :create, :edit, :update, :destroy]
 
     def index
         @comments = Comment.all 
     end
 
     def new
-        @comment = Comment.new 
+        @comment = Comment.new
     end
 
     def create
-        #need authentication
-        @comment = Comment.new
-        @comment.save(comment_params(:title, :content))
+        if authorized? == true
+            @comment = Comment.new
+            @comment.save(comment_params(:title, :content))
+        else
+            redirect_to login_path
+        end
+    end
+
+    def edit
+        if authorized? == true
+            render :edit
+        else 
+            redirect_to login_path
+        end
     end
 
     def update
-        #need authentication - only a user can edit their own comment
-        @comment.update(comment_params(:title, :content))
+        if authorized? == true
+            @comment.update(comment_params(:title, :content))
+        else
+            redirect_to login_path
+        end
     end
 
     def destroy 
-       @comment.delete 
-       redirect_to comments_path
+        if authorized? == true
+            @comment.delete 
+            redirect_to user_comments_path
+        else
+            redirect_to login_path
+        end
     end
 
     private

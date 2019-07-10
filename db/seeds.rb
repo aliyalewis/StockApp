@@ -33,7 +33,8 @@ Stock.create(symbol: "CSCO")
     User.create(
       name: Faker::Name.name,
       email: Faker::Internet.email,
-      username: Faker::Nation.nationality)
+      username: Faker::Nation.nationality,
+      password_digest: "1234")
 end
 
 100. times do
