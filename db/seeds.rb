@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Comment.create(title: "I love Apple", content: "Apple is the best. Much impressed.", stock_id: 1, user_id: 1)
+
 Stock.create(symbol: "AAPL")
 Stock.create(symbol: "MSFT")
 Stock.create(symbol:"HPQ")

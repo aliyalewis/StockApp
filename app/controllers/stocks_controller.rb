@@ -36,7 +36,6 @@ class StocksController < ApplicationController
     def show
       @stock = Stock.find(params[:id])
       fetch_stocks(@stock.symbol)
-
     end
 
 
