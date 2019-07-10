@@ -35,3 +35,11 @@ Stock.create(symbol: "CSCO")
       email: Faker::Internet.email,
       username: Faker::Nation.nationality)
 end
+
+100. times do
+  Comment.create(
+    title: Faker::ElectricalComponents.electromechanical,
+    content: Faker::Lorem.paragraph(2),
+    user_id: rand(1..5),
+    stock_id: rand(1..20))
+end
