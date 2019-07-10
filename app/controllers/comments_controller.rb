@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     before_action :logged_in?, only:[:new, :create, :edit, :update, :destroy]
 
     def index
-        @comments = Comment.all 
+        @comments = Comment.all
     end
 
     def new
@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
     def edit
         if authorized? == true
             render :edit
-        else 
+        else
             redirect_to login_path
         end
     end
@@ -36,9 +36,9 @@ class CommentsController < ApplicationController
         end
     end
 
-    def destroy 
+    def destroy
         if authorized? == true
-            @comment.delete 
+            @comment.delete
             redirect_to user_comments_path
         else
             redirect_to login_path
@@ -53,6 +53,6 @@ class CommentsController < ApplicationController
     def comment_params(*args)
         require(:comment).permit(:title, :content)
     end
- 
+
 
 end

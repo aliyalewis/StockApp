@@ -48,13 +48,6 @@ class StocksController < ApplicationController
         end
     end
 
-    def add_to_portfolio
-      @stock = Stock.find(params[:id])
-
-      current_portfolio << @stock.id
-
-    end
-
     def destroy
         @stock.delete
     end

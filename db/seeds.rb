@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'bcrypt'
 
 Comment.create(title: "I love Apple", content: "Apple is the best. Much impressed.", stock_id: 1, user_id: 1)
 
@@ -29,13 +30,14 @@ Stock.create(symbol: "ADBE")
 Stock.create(symbol: "VMW")
 Stock.create(symbol: "CSCO")
 
-5. times do
-    User.create(
-      name: Faker::Name.name,
-      email: Faker::Internet.email,
-      username: Faker::Nation.nationality,
-      password_digest: "1234")
-end
+# 5. times do
+#     User.create(
+#       name: Faker::Name.name,
+#       email: Faker::Internet.email,
+#       username: Faker::Nation.nationality,
+#       password: BCrypt::Password.create("1234")
+#     )
+# end
 
 100. times do
   Comment.create(

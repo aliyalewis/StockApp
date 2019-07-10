@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'login', to: 'auth#new'
   post 'login', to: 'auth#verify'
-  delete '/login', to: 'sessions#destroy', as: 'logout'
+  delete '/login', to: 'auth#destroy', as: 'logout'
 
 
 
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :portfolio
+    resources :portfolios
   end
 
   resources :users do
