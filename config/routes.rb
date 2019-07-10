@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users
 
   get 'login', to: 'auth#new'
-  post 'login', to: 'user#create'
+  post 'login', to: 'auth#verify'
   delete '/login', to: 'sessions#destroy', as: 'logout'
 
 
