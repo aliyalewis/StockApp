@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-    helper_method :logged_in?, :redirect_user
+  
+    helper_method :logged_in?, :redirect_user, :current_portfolio
 
     def logged_in?
         !!session[:user_id]
@@ -9,4 +10,10 @@ class ApplicationController < ActionController::Base
         !session[:user_id]
         redirect_to login_path
     end
+
+  def current_portfolio
+    session[:portfolio] ||= []
+  end
+
+
 end
