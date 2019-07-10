@@ -1,0 +1,6 @@
+
+<%= form_for(@portfolio) do |f| %>
+  <%= f.label :stock_id %>
+  <%= f.text_field @portfolio.stock_id.symbol %>
+  <%= f.submit %>
+<% end %>
