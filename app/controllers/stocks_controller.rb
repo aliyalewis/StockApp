@@ -34,8 +34,12 @@ class StocksController < ApplicationController
     end
 
     def show
+      # @user = User.find_by(id: @portfolio.user_id)
       @stock = Stock.find(params[:id])
+      # @portfolio = Portfolio.find_by(user_id: @user.id)
+      # @ps = PortfloliosStock.find_by(portfolio_id: @porfolio.id)
       fetch_stocks(@stock.symbol)
+
     end
 
     def create
