@@ -33,7 +33,7 @@
  <% end %>
 
  <h4>Add Stock to Portfolio? (<%= @stock.symbol %>)</h4>
- <%= form_tag user_portfoliosstock_path(user_id: params[:id]), :method => :get, :class => 'form-seach' do %>
+ <%= form_tag new_user_portfoliosstock_path(user_id: params[:id]), :method => :get, :class => 'form-seach' do %>
   <div class="input-append">
     <%= collection_select :portfoliosstock, :id, Stock.all, :id, :symbol %>
     <button type="submit" class="btn">Add</button>
