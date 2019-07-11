@@ -23,7 +23,9 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
-            Portfolio.create(user_id: @user.id)
+            @portfolio = Portfolio.create(user_id: @user.id)
+            @ps = PortfoliosStock.create(portfolio_id: @portfolio.id)
+            byebug
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
