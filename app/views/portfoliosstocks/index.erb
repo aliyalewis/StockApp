@@ -1,9 +1,0 @@
-<h1>Your Portfolio</h1>
-<% if @sps == nil %>
-  <%= "You have no stocks in your portfolio." %>
-<% else %>
-<% @sps.each do |stock|%>
-<%= link_to (stock.stock.symbol), stock_path(stock.stock.id)%><br>
-<% end %>
-<%end%>
-<%= link_to('Search Stocks', stocks_path)%>

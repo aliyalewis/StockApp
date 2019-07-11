@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     end
 
     def show
+      byebug
         # @portfolio = Portfolio.find_by(user_id: params[:id])
         # @portfoliostocks = PortfoliosStock.find_by(portfolio_id: @portfolio.id)
       if authorized? == true
