@@ -11,11 +11,10 @@ class PortfoliosstocksController < ApplicationController
     end
 
     def show
-        @sps = PortfoliosStock.find_by(portfolio_id: params[:id])
+        @sps = PortfoliosStock.where(portfolio_id: params[:id])
         if @sps == nil
             render :new
-        end
-        
+        end    
     end
 
 
