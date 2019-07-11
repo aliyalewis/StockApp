@@ -6,6 +6,14 @@ class UsersController < ApplicationController
         @users = User.all
     end
 
+    def show
+      if authorized? == true
+        render :show
+      else
+        redirect_to login_path
+      end
+    end
+
     def new
         @user = User.new
     end
@@ -18,6 +26,13 @@ class UsersController < ApplicationController
             @user.errors.full_messages
             render :new
         end
+    end
+
+    def edit
+      if authorized?
+      else
+        redirect_to login_path
+      end
     end
 
     def update
@@ -34,9 +49,7 @@ class UsersController < ApplicationController
     end
 
     private
-    def set_user
-        @user = User.find(params[:id])
-    end
+
 
     def user_params
         params.require(:user).permit(:name, :username, :password_digest, :email, :password, :password_confirmation)
