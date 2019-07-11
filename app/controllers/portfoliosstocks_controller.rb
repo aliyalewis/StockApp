@@ -14,10 +14,13 @@ class PortfoliosstocksController < ApplicationController
     #     @sp = PortfoliosStock.new
     # end
 
-    # def create
-    #     @portfolio = Portfolio.find_by(user_id: params[:id])
-    #     @sp = Portfolio.new(portfolio_id: @portfolio.id)
-    # end
+
+#     def create
+#         @portfolio = Portfolio.find_by(user_id: params[:user_id])
+#         @sp = Portfolio.new(portfolio_id: @portfolio.id)
+#     end
+
+
 
     def edit
         @user = User.find(params[:user_id])

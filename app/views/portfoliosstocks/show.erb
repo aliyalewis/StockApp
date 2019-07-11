@@ -1,1 +1,6 @@
-<h1>Hi!</h1>
+<h1>Your Portfolio</h1>
+    <% @sps.each do |stock|%>
+    <%= link_to stock.stock.symbol, stock_path(stock.stock)%>
+    <% end %>
+
+<%= link_to('Add Stocks', new_user_portfoliosstock_path(params[:user_id]))%>
