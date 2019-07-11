@@ -5,7 +5,7 @@ class PortfoliosstocksController < ApplicationController
     end
 
     def show
-        @sps = PortfoliosStock.where(portfolio_id: params[:id])
+        @ps = PortfoliosStock.find_or_create_by(portfolio_id: params[:id])
         @stock = Stock.find_by(params[:symbol])
     end
 
@@ -14,10 +14,13 @@ class PortfoliosstocksController < ApplicationController
     #     @sp = PortfoliosStock.new
     # end
 
-    # def create
-    #     @portfolio = Portfolio.find_by(user_id: params[:id])
-    #     @sp = Portfolio.new(portfolio_id: @portfolio.id)
-    # end
+
+#     def create
+#         @portfolio = Portfolio.find_by(user_id: params[:user_id])
+#         @sp = Portfolio.new(portfolio_id: @portfolio.id)
+#     end
+
+
 
     def edit
         @user = User.find(params[:user_id])
