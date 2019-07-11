@@ -1,22 +1,23 @@
 class PortfoliosstocksController < ApplicationController
-    def index
-        @user = User.find(params[:user_id])
-        @sps = PortfoliosStock.all
+
+    def new
+        @sp = PortfoliosStock.new
+    end
+
+
+    def create
+        @portfolio = Portfolio.find_by(user_id: params[:user_id])
+        @sp = Portfolio.new(portfolio_id: @portfolio.id)
     end
 
     def show
-        @ps = PortfoliosStock.find_by(portfolio_id: params[:id])
+        @sps = PortfoliosStock.find_by(portfolio_id: params[:id])
+        if @sps == nil
+            render :new
+        end
+        
     end
 
-
-    # def new
-    #     @sp = PortfoliosStock.new 
-    # end
-
-    # def create
-    #     @portfolio = Portfolio.find_by(user_id: params[:id])
-    #     @sp = Portfolio.new(portfolio_id: @portfolio.id)
-    # end
 
     def edit
         @user = User.find(params[:user_id])
