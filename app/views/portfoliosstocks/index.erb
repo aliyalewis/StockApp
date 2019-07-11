@@ -1,1 +1,12 @@
-<h1>Hi!</h1>
+<h1>Your Portfolio</h1>
+<% if @sps.length > 0 %>
+
+    <% @sps.each do |stock|%>
+    <%= stock.stock.symbol%>
+    <%= stock.shares%>
+    <% end %>
+
+<% else %>
+<%= "You have no stocks in your portfolio." %>
+<%end%>
+<%= link_to('Add Stocks', edit_user_portfoliosstock_path(1))%>
