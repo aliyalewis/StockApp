@@ -24,6 +24,10 @@
         <% end %>
     </ul>
 
+ <%= form_for @portfolio do |f| %>
+  <%= f.collection_select(:stock_id, Stock.all, :id, :symbol) %>
+<% end %>
+
     <% if logged_in? %>
   <li>
   <%= link_to('Logout', logout_path, method: :delete) %>

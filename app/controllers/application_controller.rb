@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :logged_in?, :redirect_user, :current_portfolio
+    helper_method :logged_in?, :redirect_user, :current_portfolio, :authorized?, :set_user
 
     def authorized?
-        params[:id] == session[:user_id]
+        params[:id].to_i == session[:user_id]
     end
 
     def redirect_user
@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
 
   def current_portfolio
     session[:portfolio] ||= []
+  end
+
+  def set_user
+      @user = User.find(params[:id])
   end
 
 
