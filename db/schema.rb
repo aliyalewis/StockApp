@@ -35,7 +35,12 @@ ActiveRecord::Schema.define(version: 2019_07_11_215359) do
   create_table "portfolios_stocks", id: false, force: :cascade do |t|
     t.bigint "portfolio_id", null: false
     t.bigint "stock_id", null: false
+<<<<<<< HEAD
     t.integer "shares"
+=======
+    t.index ["portfolio_id", "stock_id"], name: "index_portfolios_stocks_on_portfolio_id_and_stock_id"
+    t.index ["stock_id", "portfolio_id"], name: "index_portfolios_stocks_on_stock_id_and_portfolio_id"
+>>>>>>> 31266dbc3f8eceae2210c339c9685c6092eba1d1
   end
 
   create_table "stocks", force: :cascade do |t|
