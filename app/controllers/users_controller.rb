@@ -7,6 +7,8 @@ class UsersController < ApplicationController
     end
 
     def show
+        # @portfolio = Portfolio.find_by(user_id: params[:id])
+        # @portfoliostocks = PortfoliosStock.find_by(portfolio_id: @portfolio.id)
       if authorized? == true
         render :show
       else
@@ -21,6 +23,9 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
+            @portfolio = Portfolio.create(user_id: @user.id)
+            # @ps = PortfoliosStock.create(portfolio_id: @portfolio.id)
+            session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
             @user.errors.full_messages

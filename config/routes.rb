@@ -13,11 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :portfolios
-  end
-
-  resources :users do
-    resources :watchlist
+    resources :portfoliosstocks
   end
 
   resources :stocks do
