@@ -1,5 +1,5 @@
 class Portfolio < ApplicationRecord
-  belongs_to :user
-  has_many :stocks
-
+  has_one :user
+  has_many :portfolios_stocks
+  has_many :stocks, through: :portfolios_stocks
 end

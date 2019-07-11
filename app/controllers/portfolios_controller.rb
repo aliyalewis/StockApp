@@ -31,7 +31,7 @@ class PortfoliosController < ApplicationController
 
     def add_to_portfolio
       @stock = Stock.find(params[:id])
-      current_portfolio << @stock.id
+      current_portfolio << @stock.symbol
     end
 
 end
