@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     end
 
   def current_portfolio
-    session[:portfolio] ||= []
+    session[:portfolio_stocks] ||= []
   end
 
   def set_user
