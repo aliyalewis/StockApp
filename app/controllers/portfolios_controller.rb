@@ -1,6 +1,6 @@
 class PortfoliosController < ApplicationController
 
-    before_action :set_user, only:[:show]
+    
     before_action :logged_in?
 
     def index
@@ -8,20 +8,21 @@ class PortfoliosController < ApplicationController
     end
 
     def show
-
-      @portfolio = Portfolio.find(@user.id)
+      @portfolio = Portfolio.find_by(user_id: @user.id)
     end
 
     def new
-      if session[:portfolio]
-        redirect_to user_portfolio_path(params[:id])
-      else
+      # if session[:portfolio]
+      #   redirect_to user_portfolio_path(params[:id])
+      # else
       @portfolio = Portfolio.new
-      end
+   
+      # end
     end
 
     def create
-      @portfolio = Portfolio.new(:stock_id, :user_id)
+      @portfolio = Portfolio.new(user_id: params[:id])
+    
       if @portfolio.save
         redirect_to user_portfolio_path(@portfolio)
       else
@@ -29,9 +30,6 @@ class PortfoliosController < ApplicationController
       end
     end
 
-    def add_to_portfolio
-      @stock = Stock.find(params[:id])
-      current_portfolio << @stock.symbol
-    end
+  
 
 end
