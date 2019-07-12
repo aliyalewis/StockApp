@@ -44,7 +44,6 @@ class ApplicationController < ActionController::Base
     @description = response_hash['profile']['description']
     @ceo = response_hash['profile']['ceo']
     @sector = response_hash['profile']['sector']
-    # @image
   end
 
 

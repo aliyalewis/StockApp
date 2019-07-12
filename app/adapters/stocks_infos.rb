@@ -22,18 +22,6 @@ module Adapter
           sp['description'] = description
           byebug
           sp.save
-
-        # books = JSON.parse(RestClient.get(author_url))
-        #
-        # books['items'].each do |item|
-        #   if item['volumeInfo']['authors'] && item['volumeInfo']['authors'].include?(author.name)
-        #
-        #     book = ::Book.new
-        #     book.author = author
-        #     book.title = item['volumeInfo']['title']
-        #     book.snippet = item['volumeInfo']['description']
-        #
-        #     book.save
         end
        end
       end
