@@ -5,8 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <%= stylesheet_link_tag"style.css" %>
 </head>
 <body>
+  <header>
+      <% if logged_in? %>
+  <li>
+  <%= link_to('Logout', logout_path, method: :delete) %>
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', login_path) %>
+  </li>
+<% end %>
+  </header>
     <h1><%= @user.name %> </h1>
     <h4>Username: <%= @user.username %> </h4>
     <h4>Email: <%= @user.email %> </h4>
@@ -26,15 +38,5 @@
     </ul>
 
 
-
-    <% if logged_in? %>
-  <li>
-  <%= link_to('Logout', logout_path, method: :delete) %>
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Login', login_path) %>
-  </li>
-<% end %>
 </body>
 </html>
