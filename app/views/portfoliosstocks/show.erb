@@ -4,8 +4,8 @@
 <% else %>
 <% @sps.each do |stock|%>
 <%= link_to (stock.stock.symbol), stock_path(stock.stock.id)%><br>
-<h4>Shares</h4><%= stock.shares %>
-<h4>Value:</h4><%(stock.shares * @price.to_i)%>
+<h4>Shares: <%= stock.shares %></h4>
+<h4>Value: <%="$"+(stock.shares * @price.to_f).to_s%></h4>
 <%end%>
 <% end %>
 <%= link_to('Search Stocks', stocks_path)%>
