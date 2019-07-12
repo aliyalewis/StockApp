@@ -4,7 +4,7 @@
 <% else %>
 <% @sps.each do |stock|%>
 <%= link_to (stock.stock.symbol), stock_path(stock.stock.id)%>
-<%= link_to 'Remove', stocks_path, method: :delete %><br>
+<%= link_to 'Remove', stock_path(stock.stock), method: :delete %><br>
 <% end %>
 <%end%>
 <%= link_to('Search Stocks', stocks_path)%>

@@ -1,5 +1,5 @@
 class StocksController < ApplicationController
-    before_action :set_stock, only:[:update, :destroy]
+    before_action :set_stock, only:[:update]
 
     def index
       @stocks = Stock.all
@@ -49,7 +49,9 @@ class StocksController < ApplicationController
     end
 
     def destroy
-        @stock.delete
+      @portfolio = Portfolio.find_by(user_id: session[:user_id])
+      @ps = PortfoliosStock.find_by(@portfolio.user_id)
+      @ps.delete
     end
 
     private
