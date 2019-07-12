@@ -56,6 +56,9 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:name, :username, :password_digest, :email, :password, :password_confirmation)
     end
+   
+def most_held
+end
 
 
 
