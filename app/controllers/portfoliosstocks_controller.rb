@@ -14,7 +14,6 @@ class PortfoliosstocksController < ApplicationController
     end
 
     def create
-      byebug
         @portfolio = Portfolio.find_by(user_id: params[:user_id])
         @ps = PortfoliosStock.new(portfolio_id: @portfolio.id, stock_id: params[:portfoliosstock][:stock_id])
         if @ps.save
