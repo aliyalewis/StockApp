@@ -1,23 +1,51 @@
 module Adapter
   class StockInfos
-      BASE_URL = 'https://financialmodelingprep.com/api/v3/company/profile/'
+      BASE_URL = "https://financialmodelingprep.com/api/v3/company/profile/"
 
-      def initialize(symbol)
-        @symbol = symbol
+      attr_reader :symbol
+
+      def initialize(sym)
+        @symbol = sym
       end
 
-      # def fetch_stocks(symbol)
-      #   response_string = RestClient.get(BASE_URL+"#{symbol}")
-      #   response_hash = JSON.parse(response_string)
-      #
-      #   @price = repsponse_hash['profile']['price']
-      # end
+      def fetch_stocks
+        byebug
+        stocks = JSON.parse(RestClient.get(stocks_url))
 
+        20.times do
+          stocks['profile'].each do |sp|
+            sp = ::Stock.new
+          sp['companyName'] = company_name
+          sp['industry'] = industry
+          sp['website'] = website
+          sp['price'] = price
+          sp['description'] = description
+          byebug
+          sp.save
 
-        # stocks = JSON.parse(RestClient.get(stock_url))
+        # books = JSON.parse(RestClient.get(author_url))
         #
-        # stocks['profile'].each do |stock|
-          # byebug
-          # if p['profile']['authors'] && item['volumeInfo']['authors'].include?(author.name)
+        # books['items'].each do |item|
+        #   if item['volumeInfo']['authors'] && item['volumeInfo']['authors'].include?(author.name)
+        #
+        #     book = ::Book.new
+        #     book.author = author
+        #     book.title = item['volumeInfo']['title']
+        #     book.snippet = item['volumeInfo']['description']
+        #
+        #     book.save
         end
+       end
       end
+
+      private
+
+      def stocks_url
+        "#{BASE_URL}#{symbol}"
+      end
+
+      # def author_sanitizer(author)
+      #   author.gsub(/\W+/, '').downcase
+      # end
+    end
+  end

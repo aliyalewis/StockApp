@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/stympy/faker.git
-  revision: 511441003b5f283b0c516bfbceaecdabe4153a30
+  revision: 7683fc681649972a0bc6413accd8b1c78b17588f
   branch: master
   specs:
     faker (1.9.6)
@@ -55,8 +55,8 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
-    bcrypt (3.1.12)
-    bindex (0.7.0)
+    bcrypt (3.1.13)
+    bindex (0.8.1)
     bootsnap (1.4.4)
       msgpack (~> 1.0)
     builder (3.2.3)
@@ -83,7 +83,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
-    domain_name (0.5.20180417)
+    domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.8.0)
     execjs (2.7.0)
