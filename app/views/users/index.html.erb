@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <%= stylesheet_link_tag"style.css" %>
 </head>
 <body>
+    <header>
+    </header>
     <h1>All users</h1>
     <ul>
     <% @users.each do |user| %>
    <li> <%= link_to user.username, user_path(user) %> </li>
     <%end%>
 </ul>
+
+<h2>Most Held Stock: <%= @stock.symbol %> </h2>
 </body>
 </html>

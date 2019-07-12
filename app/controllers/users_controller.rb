@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
     before_action :set_user, only:[:edit, :show, :update, :destroy]
+    before_action :most_held 
 
     def index
         @users = User.all
@@ -58,6 +59,13 @@ class UsersController < ApplicationController
     end
    
 def most_held
+    held_stocks = []
+    PortfoliosStock.all.each do |portfolio|
+        held_stocks.push(portfolio.stock_id)
+    end
+    freq = held_stocks.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+    top_stock = held_stocks.max_by { |v| freq[v] }
+    @stock = Stock.find(top_stock)
 end
 
 
