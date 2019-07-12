@@ -36,6 +36,11 @@
         <li><%= link_to comment.stock.symbol, stock_path(comment.stock.id) %></li>
         <% end %>
     </ul>
+  
+
+    <%= link_to 'Delete My Account', user_path(session[:user_id]), method: :delete %><br>
+
+    <%= link_to('Search Stocks', stocks_path)%>
 
 
 </body>

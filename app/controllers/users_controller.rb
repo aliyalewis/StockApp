@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
     before_action :set_user, only:[:edit, :show, :update, :destroy]
     before_action :most_held 
+    before_action :average_value
 
     def index
         @users = User.all
@@ -49,6 +50,7 @@ class UsersController < ApplicationController
 
     def destroy
         @user.delete
+        redirect_to users_path
     end
 
     private
@@ -66,6 +68,16 @@ def most_held
     freq = held_stocks.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
     top_stock = held_stocks.max_by { |v| freq[v] }
     @stock = Stock.find(top_stock)
+end
+
+def average_value
+    total_value = 0
+    PortfoliosStock.all.each do |portfolio|
+        @stock = Stock.find(portfolio.stock_id)
+        fetch_stocks(@stock.symbol)
+        total_value += (@price * portfolio.shares)
+    end
+    @average = total_value/PortfoliosStock.all.length
 end
 
 
