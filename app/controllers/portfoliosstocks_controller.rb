@@ -1,11 +1,23 @@
 class PortfoliosstocksController < ApplicationController
     def index
         @user = User.find(params[:user_id])
+        # @sps = PortfoliosStock.all
     end
 
     def show
         @sps = PortfoliosStock.where(portfolio_id: params[:id])
+<<<<<<< HEAD
         @stock = Stock.find_by(params[:symbol])
+=======
+        @sps.each do |portfolio|
+           @stock = Stock.find(portfolio.stock_id)
+        end
+        if @stock != nil
+            fetch_stocks(@stock.symbol)
+        end
+       
+        
+>>>>>>> 48b34b843282e85866b38e2b2d75d4861a4d6735
     end
 
     def new
@@ -33,16 +45,5 @@ class PortfoliosstocksController < ApplicationController
         @portfolio = Portfolio.find_by(user_id: @user.id)
         @ps = PortfoliosStock.find_by(portfolio_id: @portfolio.id)
         @ps.update(:stock_id, :shares)
-        if @ps.update
-          redirect_to user_path(session[:user_id])
-        else
-          render :edit
-        end
-    end
-
-    def destroy
-      @stock = Stock.find_by(params[:symbol])
-      @stock.destroy
-      redirect_to user_portfoliosstock_path(session[:user_id])
     end
 end
