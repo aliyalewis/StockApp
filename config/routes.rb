@@ -20,6 +20,4 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  # Routed from POST /items/:id/add_to_cart
-
 end

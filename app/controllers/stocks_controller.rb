@@ -30,14 +30,10 @@ class StocksController < ApplicationController
       @description = response_hash['profile']['description']
       @ceo = response_hash['profile']['ceo']
       @sector = response_hash['profile']['sector']
-      # @image
     end
 
     def show
-      # @user = User.find_by(id: @portfolio.user_id)
       @stock = Stock.find(params[:id])
-      # @portfolio = Portfolio.find_by(user_id: @user.id)
-      # @ps = PortfloliosStock.find_by(portfolio_id: @porfolio.id)
       fetch_stocks(@stock.symbol)
 
     end
