@@ -4,6 +4,7 @@
  <div class="input-append">
      <%= collection_select :portfolio, :user_id, User.all, :id, :name %>
    <%= collection_select :portfoliosstock, :stock_id, Stock.all, :id, :symbol %>
+   text_field_tag 'shares' <input id="shares" name="shares" type="integer" />
    <button type="submit", method: 'post', class="btn">Add</button>
  </div>
 <% end %>

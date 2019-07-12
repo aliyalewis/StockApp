@@ -6,22 +6,33 @@ class PortfoliosstocksController < ApplicationController
 
     def show
         @sps = PortfoliosStock.where(portfolio_id: params[:id])
-        @stock = Stock.find_by(params[:symbol])
+        @sps.each do |portfolio|
+           @stock = Stock.find(portfolio.stock_id)
+           @stock.symbol
+           portfolio.shares
+        end
+        fetch_stocks(@stock.symbol)
+       
+        
     end
 
     def new
         @ps = PortfoliosStock.new
+        
     end
 
     def create
         @portfolio = Portfolio.find_by(user_id: params[:user_id])
-        @ps = PortfoliosStock.new(portfolio_id: @portfolio.id, stock_id: params[:portfoliosstock][:stock_id])
+       
+        @ps = PortfoliosStock.new(portfolio_id: @portfolio.id, stock_id: params[:portfoliosstock][:stock_id], shares: params[:shares])
         if @ps.save
           redirect_to stocks_path
         else
           render :new
         end
     end
+
+
 
     def edit
         @user = User.find(params[:user_id])

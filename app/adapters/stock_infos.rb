@@ -1,5 +1,5 @@
 module Adapter
-  class StocksInfos
+  class StockInfos
       BASE_URL = "https://financialmodelingprep.com/api/v3/company/profile/"
 
       attr_reader :symbol
