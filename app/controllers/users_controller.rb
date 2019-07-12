@@ -24,7 +24,8 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             @portfolio = Portfolio.create(user_id: @user.id)
-            # @ps = PortfoliosStock.create(portfolio_id: @portfolio.id)
+            @ps = PortfoliosStock.create(portfolio_id: @portfolio.id)
+            byebug
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
@@ -59,6 +60,8 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:name, :username, :password_digest, :email, :password, :password_confirmation)
     end
+
+
 
 
 end
