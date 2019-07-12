@@ -8,4 +8,6 @@
 <h4>Value: <%="$"+(stock.shares * @price.to_f).to_s%></h4>
 <%end%>
 <% end %>
+
+<h2>Total Value of Portfolio: <%= "$"+@total_value.to_s %> </h2>
 <%= link_to('Search Stocks', stocks_path)%>

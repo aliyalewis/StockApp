@@ -5,13 +5,18 @@ class PortfoliosstocksController < ApplicationController
     end
 
     def show
+        @total_value = 0
         @sps = PortfoliosStock.where(portfolio_id: params[:id])
         @sps.each do |portfolio|
            @stock = Stock.find(portfolio.stock_id)
-        end
-        if @stock != nil
+           if @stock != nil
             fetch_stocks(@stock.symbol)
+            @total_value += (@price * portfolio.shares)
+           end
         end
+        # if @stock != nil
+        #     fetch_stocks(@stock.symbol)
+        # end
        
         
     end
