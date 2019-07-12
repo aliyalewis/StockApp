@@ -1,0 +1,10 @@
+<h1>Your Portfolio</h1>
+<% if @sps == nil %>
+  <%= "You have no stocks in your portfolio." %>
+<% else %>
+<% @sps.each do |stock|%>
+<%= link_to (stock.stock.symbol), stock_path(stock.stock.id)%>
+<%= link_to 'Remove', user_portfoliosstock_path(@portfolio.user_id), method: :delete %><br>
+<% end %>
+<%end%>
+<%= link_to('Search Stocks', stocks_path)%>
